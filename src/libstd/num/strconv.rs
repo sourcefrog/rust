@@ -20,7 +20,7 @@ use char;
 use char::Char;
 use kinds::Copy;
 use num;
-use num::{Int, Float, FPNaN, FPInfinite, ToPrimitive};
+use num::{Int, Float, FpNan, FpInfinite, ToPrimitive};
 use slice::{SlicePrelude, CloneSliceAllocPrelude};
 use str::StrPrelude;
 use string::String;
@@ -207,14 +207,14 @@ pub fn float_to_str_bytes_common<T: Float>(
     let _1: T = Float::one();
 
     match num.classify() {
-        FPNaN => { return (b"NaN".to_vec(), true); }
-        FPInfinite if num > _0 => {
+        FpNan => { return (b"NaN".to_vec(), true); }
+        FpInfinite if num > _0 => {
             return match sign {
                 SignAll => (b"+inf".to_vec(), true),
                 _       => (b"inf".to_vec(), true)
             };
         }
-        FPInfinite if num < _0 => {
+        FpInfinite if num < _0 => {
             return match sign {
                 SignNone => (b"inf".to_vec(), true),
                 _        => (b"-inf".to_vec(), true),
