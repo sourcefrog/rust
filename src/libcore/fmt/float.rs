@@ -18,7 +18,7 @@ use char;
 use char::Char;
 use fmt;
 use iter::{range, DoubleEndedIteratorExt};
-use num::{Float, FPNaN, FPInfinite, ToPrimitive};
+use num::{Float, FpNan, FpInfinite, ToPrimitive};
 use num::cast;
 use result::Result::Ok;
 use slice::{mod, SlicePrelude};
@@ -106,11 +106,11 @@ pub fn float_to_str_bytes_common<T: Float, U>(
     let _1: T = Float::one();
 
     match num.classify() {
-        FPNaN => return f("NaN".as_bytes()),
-        FPInfinite if num > _0 => {
+        FpNan => return f("NaN".as_bytes()),
+        FpInfinite if num > _0 => {
             return f("inf".as_bytes());
         }
-        FPInfinite if num < _0 => {
+        FpInfinite if num < _0 => {
             return f("-inf".as_bytes());
         }
         _ => {}
