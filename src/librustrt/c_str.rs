@@ -68,7 +68,7 @@
 //! ```
 
 use collections::string::String;
-use collections::hash;
+use core::hash;
 use core::fmt;
 use core::kinds::{Sized, marker};
 use core::mem;

@@ -57,6 +57,7 @@ use self::DecompositionType::*;
 use core::borrow::{BorrowFrom, Cow, ToOwned};
 use core::default::Default;
 use core::fmt;
+use core::hash;
 use core::cmp;
 use core::iter::AdditiveIterator;
 use core::kinds::Sized;
@@ -65,7 +66,6 @@ use core::prelude::{Iterator, IteratorExt, SlicePrelude, None, Option, Ord, Orde
 use core::prelude::{PartialEq, PartialOrd, Result, AsSlice, Some};
 use core::prelude::{range};
 
-use hash;
 use ring_buf::RingBuf;
 use string::String;
 use unicode;
